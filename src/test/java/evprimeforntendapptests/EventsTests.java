@@ -80,7 +80,7 @@ public class EventsTests {
         createUserLoginPage.clickGoButton();
         Thread.sleep(2000);
         sidePanel.clickEventsButton();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         eventsPage.clickOnEventByIndex(1);
         eventPage.clickEditButton();
         assertEquals("Event Title",eventPage.getEventTitleTextField());
@@ -100,6 +100,7 @@ public class EventsTests {
         sidePanel.clickEventsButton();
         Thread.sleep(1000);
         eventsPage.clickOnEventByIndex(1);
+        Thread.sleep(1000);
         eventPage.clickBackToEventsButton();
         WebElement eventList = eventsPage.findEventList();
         assertTrue(eventList.isDisplayed());
