@@ -46,22 +46,19 @@ public class ContactPageTests {
 //        contactPage.insertMessage(RandomStringUtils.randomAlphabetic(12));
 //        contactPage.clickSendButton();
 
-        String htmlContentDiv1 = contactPage.setupHtmlContent();
-        String htmlContentDiv2 = contactPage.setupHtmlContent2();
+        String htmlContentContactElement = contactPage.setupHtmlContent();
+        String htmlContentContactInformation = contactPage.setupHtmlContent2();
 
-        String[] actualTextsDiv1 = contactPage.extractTextFromContactPageElements(htmlContentDiv1, "MuiTypography-root");
-        String[] actualTextsDiv2 = contactPage.extractTextFromContactPageElements(htmlContentDiv2, "MuiTypography-root");
+        String[] contactElementTexts = contactPage.extractTextFromContactPageElements(htmlContentContactElement, "MuiTypography-root");
+        String[] contactInformationTexts = contactPage.extractTextFromContactPageElements(htmlContentContactInformation, "MuiTypography-root");
 
+        assertEquals("Address" + " " + "Rampo Lefkata 1" , contactElementTexts[0] + " " + contactInformationTexts[0]);
+        assertEquals("Email" + " " + "ev@rampo.com" , contactElementTexts[1] + " " + contactInformationTexts[1]);
+        assertEquals("Phone Number" + " " + "+389 75 500 000", contactElementTexts[2] + " " + contactInformationTexts[2]);
         assertEquals("SEND",contactPage.getSendButtonText());
         assertEquals("#304ffe",contactPage.getSendButtonColor());
         assertEquals("\"Josefin Sans\"",contactPage.getSendButtonFontType());
         assertEquals("14px",contactPage.getSendButtonFontSize());
-        assertEquals("Address", actualTextsDiv1[0]);
-        assertEquals("Email", actualTextsDiv1[1]);
-        assertEquals("Phone Number", actualTextsDiv1[2]);
-        assertEquals("Rampo Lefkata 1", actualTextsDiv2[0]);
-        assertEquals("ev@rampo.com", actualTextsDiv2[1]);
-        assertEquals("+389 75 500 000", actualTextsDiv2[2]);
         }
 
     @After
