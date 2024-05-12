@@ -1,0 +1,196 @@
+Index: src/main/java/pages/EventPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.support.Color;\r\n\r\npublic class EventPage extends BasePage {\r\n\r\n    private By eventTitle = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div[1]/div[1]/div[1]/h2\");\r\n    private By eventDate = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div[1]/div[1]/div[2]/h6\");\r\n    private By eventLocation = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div[1]/div[1]/div[3]/h6\");\r\n    private By eventDescription = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div[2]/span\");\r\n    private By backToEventsButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div[1]/div[2]/button/a\");\r\n    private By getBackToEventsButtonColor = By.xpath(\"//*[@id=\\\"root\\\"]/div/div[1]/main/div[2]/div[1]/div[2]/button[2]\");\r\n\r\n\r\n    private By editButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div[1]/main/div[2]/div[1]/div[2]/button[1]\");\r\n    private By deleteButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div[1]/main/div[2]/div[1]/div[1]/div[1]/button\");\r\n    private By confirmDeleteButton=By.xpath(\"/html/body/div[2]/div[3]/div/div/button[1]\");\r\n    private By eventTitleField = By.name(\"title\");\r\n    private By getEventTitleFieldText = By.id(\":r4:-label\");\r\n    private By getEventImageFieldText = By.id(\":r5:-label\");\r\n    private By getEventDateFieldText = By.id(\":r6:-label\");\r\n    private By getEventLocationFieldText = By.id(\":r7:-label\");\r\n    private By getEventDescriptionFieldText = By.id(\":r8:-label\");\r\n    private By updateButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div[1]/main/div[2]/form/div/button\");\r\n\r\n    public EventPage(WebDriver driver){super(driver);}\r\n    @Override\r\n    public EventPage newInstance(WebDriver driver){return new EventPage(driver);}\r\n\r\n    public String getTextEventTitle(){\r\n        return getTextFromElement(eventTitle);\r\n    }\r\n    public String getTextEventDate(){return getTextFromElement(eventDate);}\r\n    public String getTextEventLocation(){return getTextFromElement(eventLocation);}\r\n    public String getTextEventDescription(){return getTextFromElement(eventDescription);}\r\n    public String getTextFromBackToEventsButton(){\r\n        return getTextFromElement(backToEventsButton);\r\n    }\r\n    public void clickBackToEventsButton(){\r\n        clickElement(backToEventsButton);\r\n    }\r\n    public void clickEditButton(){\r\n        clickElement(editButton);\r\n    }\r\n    public void eventTitleInsertText(String title){\r\n        insertText(eventTitleField, title);\r\n    }\r\n    public void clickUpdateButton(){\r\n        clickElement(updateButton);\r\n    }\r\n    public void clickDeleteButton(){\r\n        clickElement(deleteButton);\r\n    }\r\n    public void clickConfirmDeleteButton(){\r\n        clickElement(confirmDeleteButton);\r\n    }\r\n    public String getEventTitleTextField(){\r\n        return getTextFromElement(getEventTitleFieldText);\r\n    }\r\n    public String getEventImageTextField(){\r\n        return getTextFromElement(getEventImageFieldText);\r\n    }\r\n    public String getEventDateTextField(){\r\n        return getTextFromElement(getEventDateFieldText);\r\n    }\r\n    public String getEventLocationField(){\r\n        return getTextFromElement(getEventLocationFieldText);\r\n    }\r\n    public String getEventDescriptionField(){\r\n        return getTextFromElement(getEventDescriptionFieldText);\r\n    }\r\n    public String getEditEventButtonText(){\r\n        return getTextFromElement(editButton);\r\n    }\r\n    public String getUpdateButtonText(){\r\n        return getTextFromElement(updateButton);\r\n    }\r\n    public String getDeleteButtonText(){\r\n        return getTextFromElement(deleteButton);\r\n    }\r\n    public String getUpdateButtonColor(){\r\n        Color backgroundUpdateButtonColor = Color.fromString(driver.findElement(updateButton).getCssValue(\"background-color\"));\r\n        return backgroundUpdateButtonColor.asHex();\r\n    }\r\n    public String getUpdateButtonFontType() {\r\n        return driver.findElement(updateButton).getCssValue(\"font-family\");\r\n    }\r\n    public String getUpdateButtonFontSize() {\r\n        return driver.findElement(updateButton).getCssValue(\"font-size\");\r\n    }\r\n    public String getDeleteButtonColor(){\r\n        Color backgroundDeleteButtonColor = Color.fromString(driver.findElement(deleteButton).getCssValue(\"background-color\"));\r\n        return backgroundDeleteButtonColor.asHex();\r\n    }\r\n    public String getDeleteButtonFontType() {\r\n        return driver.findElement(deleteButton).getCssValue(\"font-family\");\r\n    }\r\n    public String getDeleteButtonFontSize() {\r\n        return driver.findElement(deleteButton).getCssValue(\"font-size\");\r\n    }\r\n    public String getEditButtonColor(){\r\n        Color backgroundEditButtonColor = Color.fromString(driver.findElement(editButton).getCssValue(\"background-color\"));\r\n        return backgroundEditButtonColor.asHex();\r\n    }\r\n   public String getEditButtonFontType() {\r\n        return driver.findElement(editButton).getCssValue(\"font-family\");\r\n    }\r\n    public String getEditButtonFontSize() {\r\n        return driver.findElement(editButton).getCssValue(\"font-size\");\r\n    }\r\n    public String getBackToEventsButtonColor(){\r\n        Color backgroundBackToEventsButtonColor = Color.fromString(driver.findElement(getBackToEventsButtonColor).getCssValue(\"background-color\"));\r\n        return backgroundBackToEventsButtonColor.asHex();\r\n    }\r\n    public String getBackToEventsButtonFontType() {\r\n        return driver.findElement(getBackToEventsButtonColor).getCssValue(\"font-family\");\r\n    }\r\n    public String getBackToEventsButtonFontSize() {\r\n        return driver.findElement(getBackToEventsButtonColor).getCssValue(\"font-size\");\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pages/EventPage.java b/src/main/java/pages/EventPage.java
+--- a/src/main/java/pages/EventPage.java	(revision 83c07d3e43fb94dc9a1c3cc3ac1fb8ff582c27bb)
++++ b/src/main/java/pages/EventPage.java	(date 1715550029396)
+@@ -32,6 +32,7 @@
+     public String getTextEventTitle(){
+         return getTextFromElement(eventTitle);
+     }
++
+     public String getTextEventDate(){return getTextFromElement(eventDate);}
+     public String getTextEventLocation(){return getTextFromElement(eventLocation);}
+     public String getTextEventDescription(){return getTextFromElement(eventDescription);}
+Index: src/main/java/pages/ContactPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.jsoup.Jsoup;\r\nimport org.jsoup.nodes.Document;\r\nimport org.jsoup.select.Elements;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.support.Color;\r\n\r\npublic class ContactPage extends BasePage {\r\n\r\n    private By getContactPageTitleText = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/form/div[1]/h2\");\r\n    private By nameField = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/form/div[1]/div[1]/div\");\r\n    private By emailField = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/form/div[1]/div[2]/div\");\r\n    private By messageField = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/form/div[1]/div[3]/div\");\r\n    private By sendButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/form/div[1]/button\");\r\n    private By getSendButtonText = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/form/div[1]/button\");\r\n    public String setupHtmlContent() {\r\n        return \"<div class=\\\"MuiBox-root css-0\\\"><p class=\\\"MuiTypography-root\\\">Address</p><p class=\\\"MuiTypography-root\\\">Email</p><p class=\\\"MuiTypography-root\\\">Phone Number</p></div>\";\r\n    }\r\n    public String setupHtmlContent2() {\r\n        return \"<div class=\\\"MuiBox-root css-0\\\"><p class=\\\"MuiTypography-root MuiTypography-body1 css-7o7cr3-MuiTypography-root\\\">Rampo Lefkata 1</p><p class=\\\"MuiTypography-root MuiTypography-body1 css-ilt4wu-MuiTypography-root\\\">ev@rampo.com</p><p class=\\\"MuiTypography-root MuiTypography-body1 css-7o7cr3-MuiTypography-root\\\">+389 75 500 000</p></div>\";\r\n    }\r\n    public ContactPage(WebDriver driver){super(driver);}\r\n\r\n    @Override\r\n    public ContactPage newInstance(WebDriver driver){return new ContactPage(driver);}\r\n\r\n    public String getTextFromTitle(){\r\n        return getTextFromElement(getContactPageTitleText);\r\n    }\r\n    public void insertName(String name){\r\n        insertText(nameField,name);\r\n    }\r\n    public void insertEmail(String email){\r\n        insertText(emailField,email);\r\n    }\r\n    public void insertMessage(String message){\r\n        insertText(messageField,message);\r\n    }\r\n    public void clickSendButton(){\r\n        clickElement(sendButton);\r\n    }\r\n    public String getSendButtonText(){\r\n        return getTextFromElement(getSendButtonText);\r\n    }\r\n    public boolean isContactPageTitleDisplayed(){return isElementDisplayed(getContactPageTitleText);}\r\n    public String getSendButtonColor(){\r\n        Color backgroundBackToEventsButtonColor = Color.fromString(driver.findElement(sendButton).getCssValue(\"background-color\"));\r\n        return backgroundBackToEventsButtonColor.asHex();\r\n    }\r\n    public String getSendButtonFontType() {\r\n        return driver.findElement(sendButton).getCssValue(\"font-family\");\r\n    }\r\n    public String getSendButtonFontSize() {\r\n        return driver.findElement(sendButton).getCssValue(\"font-size\");\r\n    }\r\n    public String[] extractTextFromContactPageElements(String htmlContent, String className) {\r\n        Document doc = Jsoup.parse(htmlContent);\r\n        Elements elements = doc.getElementsByClass(className);\r\n        return elements.eachText().toArray(new String[0]);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pages/ContactPage.java b/src/main/java/pages/ContactPage.java
+--- a/src/main/java/pages/ContactPage.java	(revision 83c07d3e43fb94dc9a1c3cc3ac1fb8ff582c27bb)
++++ b/src/main/java/pages/ContactPage.java	(date 1715550029438)
+@@ -29,32 +29,42 @@
+     public String getTextFromTitle(){
+         return getTextFromElement(getContactPageTitleText);
+     }
++
+     public void insertName(String name){
+         insertText(nameField,name);
+     }
++
+     public void insertEmail(String email){
+         insertText(emailField,email);
+     }
++
+     public void insertMessage(String message){
+         insertText(messageField,message);
+     }
++
+     public void clickSendButton(){
+         clickElement(sendButton);
+     }
++
+     public String getSendButtonText(){
+         return getTextFromElement(getSendButtonText);
+     }
++
+     public boolean isContactPageTitleDisplayed(){return isElementDisplayed(getContactPageTitleText);}
++
+     public String getSendButtonColor(){
+         Color backgroundBackToEventsButtonColor = Color.fromString(driver.findElement(sendButton).getCssValue("background-color"));
+         return backgroundBackToEventsButtonColor.asHex();
+     }
++
+     public String getSendButtonFontType() {
+         return driver.findElement(sendButton).getCssValue("font-family");
+     }
++
+     public String getSendButtonFontSize() {
+         return driver.findElement(sendButton).getCssValue("font-size");
+     }
++
+     public String[] extractTextFromContactPageElements(String htmlContent, String className) {
+         Document doc = Jsoup.parse(htmlContent);
+         Elements elements = doc.getElementsByClass(className);
+Index: src/main/java/pages/CreateUserLoginPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.support.Color;\r\n\r\nimport java.util.List;\r\n\r\npublic class CreateUserLoginPage extends BasePage{\r\n\r\n    private By formTitle = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div/div/form/div/div[1]\");\r\n    private By emailTextBox = By.name(\"email\");\r\n    private By passwordTextBox = By.name(\"password\");\r\n    private By goButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div/div/form/div/div[4]/div[1]/button\");\r\n    private By changeStateButton = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div/div/form/div/div[4]/div[2]/button\");\r\n    private By getErrorMessages = By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div/div/form/div/ul\");\r\n    private By authenticationErrorMessage=By.xpath(\"//*[@id=\\\"root\\\"]/div/div/main/div[2]/div/div/form/div/span\");\r\n    public CreateUserLoginPage(WebDriver driver){super(driver);}\r\n\r\n    @Override\r\n    public CreateUserLoginPage newInstance(WebDriver driver){return new CreateUserLoginPage(driver);}\r\n\r\n    public void insertEmail(String email){\r\n        insertText(emailTextBox,email);\r\n    }\r\n    public void insertPassword(String password){\r\n        insertText(passwordTextBox,password);\r\n    }\r\n    public void clickGoButton(){\r\n        clickElement(goButton);\r\n    }\r\n    public void clickChangeStateButton(){\r\n        clickElement(changeStateButton);\r\n    }\r\n    public String getTextFromTitle(){\r\n        return getTextFromElement(formTitle);\r\n    }\r\n    public List<WebElement> getErrorMessage(){\r\n        return returnListOfElements (getErrorMessages);\r\n    }\r\n    public String getAuthenticationErrorMessage(){\r\n        return getTextFromElement(authenticationErrorMessage);\r\n    }\r\n\r\n    public String getGoButtonColor(){\r\n        Color backgroundEditButtonColor = Color.fromString(driver.findElement(goButton).getCssValue(\"background-color\"));\r\n        return backgroundEditButtonColor.asHex();\r\n    }\r\n    public String getGoButtonFontType() {\r\n        return driver.findElement(goButton).getCssValue(\"font-family\");\r\n    }\r\n    public String getGoButtonFontSize() {\r\n        return driver.findElement(goButton).getCssValue(\"font-size\");\r\n    }\r\n\r\n    public String getChangeStateButtonColor(){\r\n        Color backgroundEditButtonColor = Color.fromString(driver.findElement(changeStateButton).getCssValue(\"background-color\"));\r\n        return backgroundEditButtonColor.asHex();\r\n    }\r\n    public String getChangeStateButtonFontType() {\r\n        return driver.findElement(changeStateButton).getCssValue(\"font-family\");\r\n    }\r\n    public String getChangeStateButtonFontSize() {\r\n        return driver.findElement(changeStateButton).getCssValue(\"font-size\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pages/CreateUserLoginPage.java b/src/main/java/pages/CreateUserLoginPage.java
+--- a/src/main/java/pages/CreateUserLoginPage.java	(revision 83c07d3e43fb94dc9a1c3cc3ac1fb8ff582c27bb)
++++ b/src/main/java/pages/CreateUserLoginPage.java	(date 1715550029476)
+@@ -24,43 +24,55 @@
+     public void insertEmail(String email){
+         insertText(emailTextBox,email);
+     }
++
+     public void insertPassword(String password){
+         insertText(passwordTextBox,password);
+     }
++
+     public void clickGoButton(){
+         clickElement(goButton);
+     }
++
+     public void clickChangeStateButton(){
+         clickElement(changeStateButton);
+     }
++
+     public String getTextFromTitle(){
+         return getTextFromElement(formTitle);
+     }
++
+     public List<WebElement> getErrorMessage(){
+         return returnListOfElements (getErrorMessages);
+     }
++
+     public String getAuthenticationErrorMessage(){
+         return getTextFromElement(authenticationErrorMessage);
+     }
+ 
++
+     public String getGoButtonColor(){
+         Color backgroundEditButtonColor = Color.fromString(driver.findElement(goButton).getCssValue("background-color"));
+         return backgroundEditButtonColor.asHex();
+     }
++
+     public String getGoButtonFontType() {
+         return driver.findElement(goButton).getCssValue("font-family");
+     }
++
+     public String getGoButtonFontSize() {
+         return driver.findElement(goButton).getCssValue("font-size");
+     }
+ 
++
+     public String getChangeStateButtonColor(){
+         Color backgroundEditButtonColor = Color.fromString(driver.findElement(changeStateButton).getCssValue("background-color"));
+         return backgroundEditButtonColor.asHex();
+     }
++
+     public String getChangeStateButtonFontType() {
+         return driver.findElement(changeStateButton).getCssValue("font-family");
+     }
++
+     public String getChangeStateButtonFontSize() {
+         return driver.findElement(changeStateButton).getCssValue("font-size");
+     }
+Index: src/main/java/pages/BasePage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pages;\r\n\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.NoSuchElementException;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.interactions.Actions;\r\nimport java.util.List;\r\n\r\npublic abstract class BasePage {\r\n    public WebDriver driver;\r\n    Actions actions;\r\n    public BasePage(WebDriver driver) {\r\n        this.driver = driver;\r\n        actions = new Actions(driver);\r\n    }\r\n    public abstract BasePage newInstance(WebDriver driver);\r\n    public void navigateTo (String url) {\r\n        driver.get(url);\r\n    }\r\n    public void clickElement(By element) {\r\n        driver.findElement(element).click();\r\n    }\r\n    public String getTextFromElement(By element){\r\n        return driver.findElement(element).getText();\r\n    }\r\n    public void insertText(By element,String text){\r\n         driver.findElement(element).sendKeys(text);\r\n    }\r\n    public boolean isElementDisplayed(By element) {\r\n        try {\r\n            driver.findElement(element).getText();\r\n            return true;\r\n        } catch (NoSuchElementException e) {\r\n            return false;\r\n        }\r\n    }\r\n    public List<WebElement> returnListOfElements(By element){\r\n        return driver.findElements(element);\r\n    }\r\n\r\n    public void hoverElement(By locator){\r\n        WebElement element = driver.findElement(locator);\r\n        actions.moveToElement(element).perform();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pages/BasePage.java b/src/main/java/pages/BasePage.java
+--- a/src/main/java/pages/BasePage.java	(revision 83c07d3e43fb94dc9a1c3cc3ac1fb8ff582c27bb)
++++ b/src/main/java/pages/BasePage.java	(date 1715550029356)
+@@ -15,18 +15,22 @@
+         actions = new Actions(driver);
+     }
+     public abstract BasePage newInstance(WebDriver driver);
++
+     public void navigateTo (String url) {
+         driver.get(url);
+     }
++
+     public void clickElement(By element) {
+         driver.findElement(element).click();
+     }
+     public String getTextFromElement(By element){
+         return driver.findElement(element).getText();
+     }
++
+     public void insertText(By element,String text){
+          driver.findElement(element).sendKeys(text);
+     }
++
+     public boolean isElementDisplayed(By element) {
+         try {
+             driver.findElement(element).getText();
+@@ -35,6 +39,7 @@
+             return false;
+         }
+     }
++
+     public List<WebElement> returnListOfElements(By element){
+         return driver.findElements(element);
+     }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"306a777e-c995-45d8-8b53-eeef259753a2\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/evprimeforntendapptests/ContactPageTests.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/evprimeforntendapptests/ContactPageTests.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fCbQjY89D6xPlIyVzYrZupxEAV\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;EvPrimeFrontEndProject&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RunManager\" selected=\"JUnit.ContactPageTests.validationOfContactPage\">\r\n    <configuration name=\"ContactPageTests.validationOfContactPage\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EVPrimeFrontEnd\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"evprimeforntendapptests.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"evprimeforntendapptests\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"evprimeforntendapptests.ContactPageTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"validationOfContactPage\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"CreateUserLoginTests.verifyCssForUserLoginButtons\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EVPrimeFrontEnd\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"evprimeforntendapptests.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"evprimeforntendapptests\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"evprimeforntendapptests.CreateUserLoginTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"verifyCssForUserLoginButtons\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EventsTests.updateEventTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EVPrimeFrontEnd\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"evprimeforntendapptests.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"evprimeforntendapptests\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"evprimeforntendapptests.EventsTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"updateEventTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EventsTests.verifyingEventButtonsColor\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EVPrimeFrontEnd\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"evprimeforntendapptests.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"evprimeforntendapptests\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"evprimeforntendapptests.EventsTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"verifyingEventButtonsColor\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"evprimeforntendapptests in EVPrimeFrontEnd\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"EVPrimeFrontEnd\" />\r\n      <option name=\"TEST_OBJECT\" value=\"directory\" />\r\n      <dir value=\"$PROJECT_DIR$/src/test/java/evprimeforntendapptests\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"JUnit.ContactPageTests.validationOfContactPage\" />\r\n        <item itemvalue=\"JUnit.EventsTests.updateEventTest\" />\r\n        <item itemvalue=\"JUnit.CreateUserLoginTests.verifyCssForUserLoginButtons\" />\r\n        <item itemvalue=\"JUnit.evprimeforntendapptests in EVPrimeFrontEnd\" />\r\n        <item itemvalue=\"JUnit.EventsTests.verifyingEventButtonsColor\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"306a777e-c995-45d8-8b53-eeef259753a2\" name=\"Changes\" comment=\"\" />\r\n      <created>1713307995413</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713307995413</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 83c07d3e43fb94dc9a1c3cc3ac1fb8ff582c27bb)
++++ b/.idea/workspace.xml	(date 1715110021000)
+@@ -6,7 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="306a777e-c995-45d8-8b53-eeef259753a2" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/evprimeforntendapptests/ContactPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/evprimeforntendapptests/ContactPageTests.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />

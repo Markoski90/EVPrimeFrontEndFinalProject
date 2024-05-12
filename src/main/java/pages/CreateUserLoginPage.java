@@ -24,43 +24,55 @@ public class CreateUserLoginPage extends BasePage{
     public void insertEmail(String email){
         insertText(emailTextBox,email);
     }
+
     public void insertPassword(String password){
         insertText(passwordTextBox,password);
     }
+
     public void clickGoButton(){
         clickElement(goButton);
     }
+
     public void clickChangeStateButton(){
         clickElement(changeStateButton);
     }
+
     public String getTextFromTitle(){
         return getTextFromElement(formTitle);
     }
+
     public List<WebElement> getErrorMessage(){
         return returnListOfElements (getErrorMessages);
     }
+
     public String getAuthenticationErrorMessage(){
         return getTextFromElement(authenticationErrorMessage);
     }
+
 
     public String getGoButtonColor(){
         Color backgroundEditButtonColor = Color.fromString(driver.findElement(goButton).getCssValue("background-color"));
         return backgroundEditButtonColor.asHex();
     }
+
     public String getGoButtonFontType() {
         return driver.findElement(goButton).getCssValue("font-family");
     }
+
     public String getGoButtonFontSize() {
         return driver.findElement(goButton).getCssValue("font-size");
     }
+
 
     public String getChangeStateButtonColor(){
         Color backgroundEditButtonColor = Color.fromString(driver.findElement(changeStateButton).getCssValue("background-color"));
         return backgroundEditButtonColor.asHex();
     }
+
     public String getChangeStateButtonFontType() {
         return driver.findElement(changeStateButton).getCssValue("font-family");
     }
+
     public String getChangeStateButtonFontSize() {
         return driver.findElement(changeStateButton).getCssValue("font-size");
     }

@@ -15,18 +15,22 @@ public abstract class BasePage {
         actions = new Actions(driver);
     }
     public abstract BasePage newInstance(WebDriver driver);
+
     public void navigateTo (String url) {
         driver.get(url);
     }
+
     public void clickElement(By element) {
         driver.findElement(element).click();
     }
     public String getTextFromElement(By element){
         return driver.findElement(element).getText();
     }
+
     public void insertText(By element,String text){
          driver.findElement(element).sendKeys(text);
     }
+
     public boolean isElementDisplayed(By element) {
         try {
             driver.findElement(element).getText();
@@ -35,6 +39,7 @@ public abstract class BasePage {
             return false;
         }
     }
+
     public List<WebElement> returnListOfElements(By element){
         return driver.findElements(element);
     }

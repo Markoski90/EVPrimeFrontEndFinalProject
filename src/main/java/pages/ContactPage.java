@@ -29,32 +29,42 @@ public class ContactPage extends BasePage {
     public String getTextFromTitle(){
         return getTextFromElement(getContactPageTitleText);
     }
+
     public void insertName(String name){
         insertText(nameField,name);
     }
+
     public void insertEmail(String email){
         insertText(emailField,email);
     }
+
     public void insertMessage(String message){
         insertText(messageField,message);
     }
+
     public void clickSendButton(){
         clickElement(sendButton);
     }
+
     public String getSendButtonText(){
         return getTextFromElement(getSendButtonText);
     }
+
     public boolean isContactPageTitleDisplayed(){return isElementDisplayed(getContactPageTitleText);}
+
     public String getSendButtonColor(){
         Color backgroundBackToEventsButtonColor = Color.fromString(driver.findElement(sendButton).getCssValue("background-color"));
         return backgroundBackToEventsButtonColor.asHex();
     }
+
     public String getSendButtonFontType() {
         return driver.findElement(sendButton).getCssValue("font-family");
     }
+
     public String getSendButtonFontSize() {
         return driver.findElement(sendButton).getCssValue("font-size");
     }
+
     public String[] extractTextFromContactPageElements(String htmlContent, String className) {
         Document doc = Jsoup.parse(htmlContent);
         Elements elements = doc.getElementsByClass(className);

@@ -32,91 +32,121 @@ public class EventPage extends BasePage {
     public String getTextEventTitle(){
         return getTextFromElement(eventTitle);
     }
+
     public String getTextEventDate(){return getTextFromElement(eventDate);}
+
     public String getTextEventLocation(){return getTextFromElement(eventLocation);}
+
     public String getTextEventDescription(){return getTextFromElement(eventDescription);}
+
     public String getTextFromBackToEventsButton(){
         return getTextFromElement(backToEventsButton);
     }
+
     public void clickBackToEventsButton(){
         clickElement(backToEventsButton);
     }
+
     public void clickEditButton(){
         clickElement(editButton);
     }
+
     public void eventTitleInsertText(String title){
         insertText(eventTitleField, title);
     }
+
     public void clickUpdateButton(){
         clickElement(updateButton);
     }
+
     public void clickDeleteButton(){
         clickElement(deleteButton);
     }
+
     public void clickConfirmDeleteButton(){
         clickElement(confirmDeleteButton);
     }
+
     public String getEventTitleTextField(){
         return getTextFromElement(getEventTitleFieldText);
     }
+
     public String getEventImageTextField(){
         return getTextFromElement(getEventImageFieldText);
     }
+
     public String getEventDateTextField(){
         return getTextFromElement(getEventDateFieldText);
     }
+
     public String getEventLocationField(){
         return getTextFromElement(getEventLocationFieldText);
     }
+
     public String getEventDescriptionField(){
         return getTextFromElement(getEventDescriptionFieldText);
     }
+
     public String getEditEventButtonText(){
         return getTextFromElement(editButton);
     }
+
     public String getUpdateButtonText(){
         return getTextFromElement(updateButton);
     }
+
     public String getDeleteButtonText(){
         return getTextFromElement(deleteButton);
     }
+
     public String getUpdateButtonColor(){
         Color backgroundUpdateButtonColor = Color.fromString(driver.findElement(updateButton).getCssValue("background-color"));
         return backgroundUpdateButtonColor.asHex();
     }
+
     public String getUpdateButtonFontType() {
         return driver.findElement(updateButton).getCssValue("font-family");
     }
+
     public String getUpdateButtonFontSize() {
         return driver.findElement(updateButton).getCssValue("font-size");
     }
+
     public String getDeleteButtonColor(){
         Color backgroundDeleteButtonColor = Color.fromString(driver.findElement(deleteButton).getCssValue("background-color"));
         return backgroundDeleteButtonColor.asHex();
     }
+
     public String getDeleteButtonFontType() {
         return driver.findElement(deleteButton).getCssValue("font-family");
     }
+
     public String getDeleteButtonFontSize() {
         return driver.findElement(deleteButton).getCssValue("font-size");
     }
+
     public String getEditButtonColor(){
         Color backgroundEditButtonColor = Color.fromString(driver.findElement(editButton).getCssValue("background-color"));
         return backgroundEditButtonColor.asHex();
     }
+
    public String getEditButtonFontType() {
         return driver.findElement(editButton).getCssValue("font-family");
     }
+
     public String getEditButtonFontSize() {
         return driver.findElement(editButton).getCssValue("font-size");
     }
+
     public String getBackToEventsButtonColor(){
         Color backgroundBackToEventsButtonColor = Color.fromString(driver.findElement(getBackToEventsButtonColor).getCssValue("background-color"));
         return backgroundBackToEventsButtonColor.asHex();
     }
+
     public String getBackToEventsButtonFontType() {
         return driver.findElement(getBackToEventsButtonColor).getCssValue("font-family");
     }
+
     public String getBackToEventsButtonFontSize() {
         return driver.findElement(getBackToEventsButtonColor).getCssValue("font-size");
     }

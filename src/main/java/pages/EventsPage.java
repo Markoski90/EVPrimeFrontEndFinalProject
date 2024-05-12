@@ -29,15 +29,19 @@ public class EventsPage extends BasePage {
     public void insertEventImage(String image){
         insertText(eventImage,image);
     }
+
     public void insertEventDate(String date){
         insertText(eventDate,date);
     }
+
     public void insertEventLocation(String location){
         insertText(eventLocation,location);
     }
+
     public void insertEventDescription(String description){
         insertText(eventDescription,description);
     }
+
 
     public void clickOnEventByIndex (int index) {
 
@@ -54,12 +58,15 @@ public class EventsPage extends BasePage {
     public WebElement findEventList() {
         return driver.findElement(By.xpath(eventListXPath));
     }
+
     public void clickCreateEventButton(){
         clickElement(createEventButton);
     }
+
     public void hoverPlusButton(){
         hoverElement(hoverPlusButton);
     }
+
     public void clickAddEventButton(){
         clickElement(addEventButton);
     }
